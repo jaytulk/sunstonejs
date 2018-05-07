@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
+import classNames from 'classnames';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import TextField from 'material-ui/TextField';
@@ -9,6 +10,10 @@ import Button from 'material-ui/Button';
 import Save from '@material-ui/icons/Save';
 import {CircularProgress} from 'material-ui/Progress';
 import green from 'material-ui/colors/green';
+import red from 'material-ui/colors/red';
+import toastr from 'toastr';
+
+toastr.options.timeOut = 500;
 
 const styles = theme => ({
   root: theme.mixins.gutters({
@@ -34,15 +39,19 @@ const styles = theme => ({
   answerRoot: {
     display: 'flex',
     flexDirection: 'row',
-    // alignItems: 'center',
   },
   buttonRoot: {
     display: 'flex',
-    // alignSelf: 'center',
   },
   wrapper: {
     margin: theme.spacing.unit,
     position: 'relative',
+  },
+  greenIcon: {
+    color: green[500],
+  },
+  redIcon: {
+    color: red[500],
   },
   buttonProgress: {
     color: green[500],
@@ -50,9 +59,13 @@ const styles = theme => ({
     top: '50%',
     left: '50%',
     marginTop: -12,
-    marginLeft: theme.spacing.unit,
+    marginLeft: -10,
   },
 });
+
+const answerFieldProps = {
+  autoFocus: true,
+};
 
 class Question extends Component {
   state = {
@@ -67,10 +80,8 @@ class Question extends Component {
   };
 
   handleSubmit = async () => {
-    console.log('handling test', this.state.guess);
     this.setState({loading: true}, () => {
       setTimeout(() => {
-        console.log('testing', this.state.guess, this.props, this.state.guessCount);
         this.setState(
           {
             loading: false,
@@ -78,9 +89,12 @@ class Question extends Component {
             guessCount: ++this.state.guessCount,
           },
           () => {
-            console.log('answer achieved: ', this.state.answerAchieved, this.state);
             if (this.state.answerAchieved) {
-              this.props.moveNext();
+              setTimeout(() => {
+                this.props.moveNext();
+              }, 600);
+            } else {
+              toastr.error('Incorrect!');
             }
           }
         );
@@ -104,15 +118,20 @@ class Question extends Component {
               className={classes.textField}
               helperText={this.state.guessCount > hintThreshold ? hint : ''}
               onChange={(e, test) => this.handleOnChange(e, test)}
+              inputProps={answerFieldProps}
             />
             <div className={classes.buttonRoot}>
               <div className={classes.wrapper}>
                 <Button onClick={() => this.handleSubmit()} className={classes.button} variant="raised" color="primary">
                   Submit
                   {this.state.loading && <CircularProgress size={24} className={classes.buttonProgress} />}
-                  {this.state.answerAchieved && <Icon className={classes.rightIcon}>checkmark</Icon>}
+                  {this.state.answerAchieved && (
+                    <Icon className={classNames(classes.rightIcon, classes.greenIcon)}>checkmark</Icon>
+                  )}
                   {this.state.guessCount > 0 &&
-                    !this.state.answerAchieved && <Icon className={classes.rightIcon}>clear</Icon>}
+                    !this.state.answerAchieved && (
+                      <Icon className={classNames(classes.rightIcon, classes.redIcon)}>clear</Icon>
+                    )}
                 </Button>
               </div>
             </div>

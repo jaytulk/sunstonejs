@@ -5,13 +5,14 @@ import classNames from 'classnames';
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
-import List from 'material-ui/List';
+import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import Icon from 'material-ui/Icon';
 import Game from './Game';
 
 const drawerWidth = 240;
@@ -70,7 +71,7 @@ const styles = theme => ({
   toolbar: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-begin',
     padding: '0 8px',
     ...theme.mixins.toolbar,
   },
@@ -110,7 +111,7 @@ class MiniDrawer extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="title" color="inherit" noWrap>
-              Mini variant drawer
+              SunstoneJS Super Relevant Trivia
             </Typography>
           </Toolbar>
         </AppBar>
@@ -127,6 +128,14 @@ class MiniDrawer extends React.Component {
             </IconButton>
           </div>
           <Divider />
+          <List>
+            <ListItem button>
+              <ListItemIcon>
+                <Icon>home</Icon>
+              </ListItemIcon>
+              <ListItemText inset primary="Home" />
+            </ListItem>
+          </List>
         </Drawer>
         <main className={classes.content}>
           <div className={classes.toolbar} />
