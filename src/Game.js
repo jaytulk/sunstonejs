@@ -4,6 +4,7 @@ import {withStyles} from 'material-ui/styles';
 import Slide from 'material-ui/transitions/Slide';
 import Typography from 'material-ui/Typography';
 import Zoom from 'material-ui/transitions/Zoom';
+import Extra from './resources/questions';
 import Question from './Question';
 
 const styles = theme => ({
@@ -14,32 +15,11 @@ const styles = theme => ({
   },
 });
 
-let starterQuestions = [
-  {
-    id: 1,
-    question: 'What animal has three eyelids?',
-    hint: "It's the ship of the desert",
-    hintThreshold: 2,
-    answer: 'camel',
-  },
-  {
-    id: 2,
-    question: 'What is 8 * 6?',
-    answer: '42',
-  },
-  {
-    id: 3,
-    question: 'What is the secret code?',
-    instructions: 'Open your world on Minecraft, Marma. Complete the tasks and return your revelations...',
-    answer: 'number',
-  },
-];
-
 class Game extends Component {
   state = {
     finished: false,
-    currentQuestion: starterQuestions[0],
-    questions: starterQuestions,
+    currentQuestion: Extra[0],
+    questions: Extra,
     questionSet: true,
   };
 

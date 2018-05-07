@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 import classNames from 'classnames';
@@ -9,6 +9,7 @@ import Icon from 'material-ui/Icon';
 import Button from 'material-ui/Button';
 import Save from '@material-ui/icons/Save';
 import {CircularProgress} from 'material-ui/Progress';
+import Divider from 'material-ui/Divider';
 import green from 'material-ui/colors/green';
 import red from 'material-ui/colors/red';
 import toastr from 'toastr';
@@ -20,12 +21,12 @@ const styles = theme => ({
     paddingTop: 16,
     paddingBottom: 16,
     marginTop: theme.spacing.unit * 3,
-    width: 400,
+    width: 500,
   }),
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-    width: 200,
+    width: 300,
   },
   rightIcon: {
     marginLeft: theme.spacing.unit,
@@ -39,6 +40,7 @@ const styles = theme => ({
   answerRoot: {
     display: 'flex',
     flexDirection: 'row',
+    paddingTop: 15,
   },
   buttonRoot: {
     display: 'flex',
@@ -103,11 +105,20 @@ class Question extends Component {
   };
 
   render() {
-    const {classes, question = 'none provided', hint = '', hintThreshold = Infinity} = this.props;
+    const {classes, question = 'none provided', hint = '', hintThreshold = Infinity, directions = null} = this.props;
 
     return (
       <div>
         <Paper className={classes.root} elevation={4}>
+          {directions && (
+            <Fragment>
+              <Typography variant="display1" gutterBottom>
+                {directions}
+              </Typography>
+              <Divider />
+            </Fragment>
+          )}
+
           <Typography variant="headline" component="h3">
             {question}
           </Typography>
@@ -116,7 +127,7 @@ class Question extends Component {
               label="Enter your answer..."
               id="margin-none"
               className={classes.textField}
-              helperText={this.state.guessCount > hintThreshold ? hint : ''}
+              helperText={this.state.guessCount >= hintThreshold ? hint : ''}
               onChange={(e, test) => this.handleOnChange(e, test)}
               inputProps={answerFieldProps}
             />
