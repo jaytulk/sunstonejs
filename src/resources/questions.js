@@ -1,44 +1,59 @@
 const questions = [
   {
     id: 1,
-    question: 'What is the secret code to begin the challenge?',
-    //hint: "It's on the coffee pot",
-    //hintThreshold: 2,
+    question: 'What is the code to begin the trivia challenge?',
+    hint: 'Check Hangouts',
+    hintThreshold: 1,
     answer: 'test',
   },
-  {
-    id: 2,
-    question: 'What animal has three eyelids?',
-    hint: "It's the ship of the desert",
-    hintThreshold: 2,
-    answer: 'camel',
-  },
+  // {
+  //   id: 2,
+  //   question: 'What animal has three eyelids?',
+  //   answer: 'camel',
+  //   hint: "It's the ship of the desert",
+  //   hintThreshold: 2,
+  // },
   // {
   //   id: 3,
   //   question: 'What is 4 * 106917 * 12 + 2?',
+  //   answer: '5132018',
   //   hint: 'Use a calculator',
   //   hintThreshold: 0,
-  //   answer: '5132018',
   // },
   // {
   //   id: 4,
-  //   directions: 'The next code is closest to where you dream...',
-  //   question: 'What is the secret code?',
-  //   answer: '4',
-  //   hint: `The answer lies inside of your head's closest friend`,
+  //   question: 'What is the secret code to begin the ultra intense challenge?',
+  //   answer: 'test',
+  //   hint: "It's on the coffee pot",
   //   hintThreshold: 2,
   // },
   // {
   //   id: 5,
-  //   directions: '5Complete the tasks and return with your revelations...',
+  //   directions: 'The next code is on something close to where you dream...',
   //   question: 'What is the secret code?',
-  //   answer: '5',
+  //   answer: 'test',
+  //   hint: `The answer sticks on the underside of that something`,
+  //   hintThreshold: 2,
   // },
   // {
   //   id: 6,
-  //   directions: '6Complete the tasks and return with your revelations...',
+  //   directions:
+  //     'Open your world on Minecraft, you will know which one is yours... Complete the first task and return with your revelation...',
   //   question: 'What is the secret code?',
-  //   answer: '6',
+  //   answer: 'test',
+  // },
+  // {
+  //   id: 7,
+  //   directions: 'Pull the lever and continue on! Return with your revelation...',
+  //   question: 'What is the secret code?',
+  //   answer: 'test',
+  // },
+  // {
+  //   id: 8,
+  //   directions:
+  //     'Across the water from the portal is a ladder, your next adventure begins there... Return with your revelation...',
+  //   question: 'What is the secret code?',
+  //   answer: 'test',
   // },
 ];
 

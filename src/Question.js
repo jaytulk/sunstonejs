@@ -15,7 +15,7 @@ import red from 'material-ui/colors/red';
 import toastr from 'toastr';
 
 toastr.options.timeOut = 500;
-toastr.options.positionClass = 'toast-bottom-center';
+toastr.options.positionClass = 'toast-top-center';
 
 const styles = theme => ({
   root: theme.mixins.gutters({
@@ -79,7 +79,7 @@ class Question extends Component {
   };
 
   handleOnChange = (e, test) => {
-    this.setState({guess: e.target.value || ''});
+    this.setState({guess: e.target.value ? e.target.value.toLowerCase() : ''});
   };
 
   handleSubmit = async () => {
@@ -89,7 +89,7 @@ class Question extends Component {
           {
             loading: false,
             answerAchieved: this.state.guess === this.props.answer,
-            guessCount: ++this.state.guessCount,
+            guessCount: this.state.guess === this.props.answer ? 0 : ++this.state.guessCount,
           },
           () => {
             if (this.state.answerAchieved) {
@@ -117,6 +117,7 @@ class Question extends Component {
                 {directions}
               </Typography>
               <Divider />
+              <br />
             </Fragment>
           )}
 
