@@ -56,6 +56,7 @@ const styles = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
+    marginRight: 20,
   },
   drawerPaperClose: {
     overflowX: 'hidden',
@@ -63,10 +64,7 @@ const styles = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    width: theme.spacing.unit * 3,
-    [theme.breakpoints.up('sm')]: {
-      width: theme.spacing.unit * 3,
-    },
+    width: theme.spacing.unit * 0,
   },
   toolbar: {
     display: 'flex',

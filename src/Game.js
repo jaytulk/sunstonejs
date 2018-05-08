@@ -9,9 +9,10 @@ import Question from './Question';
 
 const styles = theme => ({
   root: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    // display: 'flex',
+    // flexDirection: 'column',
+    // alignItems: 'center',
+    // justifyContent: 'flex',
   },
 });
 
