@@ -1,23 +1,24 @@
 const questions = [
   {
     id: 1,
+    question: 'What is the secret code to begin the challenge?',
+    //hint: "It's on the coffee pot",
+    //hintThreshold: 2,
+    answer: 'test',
+  },
+  {
+    id: 2,
     question: 'What animal has three eyelids?',
     hint: "It's the ship of the desert",
     hintThreshold: 2,
     answer: 'camel',
   },
   // {
-  //   id: 2,
+  //   id: 3,
   //   question: 'What is 4 * 106917 * 12 + 2?',
   //   hint: 'Use a calculator',
   //   hintThreshold: 0,
   //   answer: '5132018',
-  // },
-  // {
-  //   id: 3,
-  //   directions: '3Complete the tasks and return with your revelations...',
-  //   question: 'What is the secret code?',
-  //   answer: '3',
   // },
   // {
   //   id: 4,

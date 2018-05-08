@@ -16,12 +16,11 @@ import Icon from 'material-ui/Icon';
 import Game from './Game';
 import Test from './Test';
 import {Switch, Route, withRouter} from 'react-router-dom';
-const drawerWidth = 240;
+const drawerWidth = 180;
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    height: 430,
     zIndex: 1,
     overflow: 'hidden',
     position: 'relative',
@@ -64,9 +63,9 @@ const styles = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    width: theme.spacing.unit * 7,
+    width: theme.spacing.unit * 3,
     [theme.breakpoints.up('sm')]: {
-      width: theme.spacing.unit * 9,
+      width: theme.spacing.unit * 3,
     },
   },
   toolbar: {
@@ -75,11 +74,6 @@ const styles = theme => ({
     justifyContent: 'flex-begin',
     padding: '0 8px',
     ...theme.mixins.toolbar,
-  },
-  content: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
-    padding: theme.spacing.unit * 3,
   },
 });
 
@@ -112,12 +106,13 @@ class Layout extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="title" color="inherit" noWrap>
-              SunstoneJS Super Relevant Trivia
+              Super Relevant Trivia
             </Typography>
           </Toolbar>
         </AppBar>
         <Drawer
-          variant="permanent"
+          variant="persistent"
+          anchor="left"
           classes={{
             paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose),
           }}

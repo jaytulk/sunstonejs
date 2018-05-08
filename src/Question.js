@@ -15,13 +15,14 @@ import red from 'material-ui/colors/red';
 import toastr from 'toastr';
 
 toastr.options.timeOut = 500;
+toastr.options.positionClass = 'toast-bottom-center';
 
 const styles = theme => ({
   root: theme.mixins.gutters({
     paddingTop: 16,
     paddingBottom: 16,
     marginTop: theme.spacing.unit * 3,
-    width: 500,
+    width: 300,
   }),
   textField: {
     marginLeft: theme.spacing.unit,
@@ -127,7 +128,7 @@ class Question extends Component {
               label="Enter your answer..."
               id="margin-none"
               className={classes.textField}
-              helperText={this.state.guessCount >= hintThreshold ? hint : ''}
+              helperText={this.state.guessCount >= hintThreshold ? `Hint: ${hint}` : ''}
               onChange={(e, test) => this.handleOnChange(e, test)}
               inputProps={answerFieldProps}
             />
@@ -139,10 +140,6 @@ class Question extends Component {
                   {this.state.answerAchieved && (
                     <Icon className={classNames(classes.rightIcon, classes.greenIcon)}>checkmark</Icon>
                   )}
-                  {this.state.guessCount > 0 &&
-                    !this.state.answerAchieved && (
-                      <Icon className={classNames(classes.rightIcon, classes.redIcon)}>clear</Icon>
-                    )}
                 </Button>
               </div>
             </div>
