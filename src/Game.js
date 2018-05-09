@@ -32,7 +32,7 @@ class Game extends Component {
         if (nextQuestion) {
           this.setState({currentQuestion: nextQuestion});
         } else {
-          this.setState({currentQuestion: null, finished: true});
+          this.setState({finished: true});
         }
       }, 300);
     });
@@ -53,11 +53,18 @@ class Game extends Component {
           </Slide>
         )}
         {this.state.finished && (
-          <Zoom in={true} timeout={1000}>
-            <Typography variant="display4" gutterBottom>
-              You won!!!
-            </Typography>
-          </Zoom>
+          <Fragment>
+            <Zoom in={true} timeout={1000}>
+              <Typography variant="display4" gutterBottom>
+                You won!!!
+              </Typography>
+            </Zoom>
+            <Zoom in={true} timeout={1000}>
+              <Typography variant="headline">
+                {`Please call (225) 454-9424 with the final secret code: Ermahgerd! That verss fern!!🤓`}
+              </Typography>
+            </Zoom>
+          </Fragment>
         )}
       </div>
     );

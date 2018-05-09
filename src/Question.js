@@ -79,7 +79,13 @@ class Question extends Component {
   };
 
   handleOnChange = (e, test) => {
-    this.setState({guess: e.target.value ? e.target.value.toLowerCase() : ''});
+    let guess = e.target.value ? e.target.value.toLowerCase() : '';
+
+    if (this.props.adjustment) {
+      guess = this.props.adjustment(guess);
+    }
+
+    this.setState({guess});
   };
 
   handleSubmit = async () => {

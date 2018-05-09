@@ -14,7 +14,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Icon from 'material-ui/Icon';
 import Game from './Game';
-import Test from './Test';
+import Home from './Home';
 import {Switch, Route, withRouter} from 'react-router-dom';
 const drawerWidth = 180;
 
@@ -49,7 +49,7 @@ const styles = theme => ({
     display: 'none',
   },
   drawerPaper: {
-    position: 'relative',
+    position: 'fixed',
     whiteSpace: 'nowrap',
     width: drawerWidth,
     transition: theme.transitions.create('width', {
@@ -73,6 +73,9 @@ const styles = theme => ({
     padding: '0 8px',
     ...theme.mixins.toolbar,
   },
+  content: {
+    marginLeft: 15,
+  },
 });
 
 class Layout extends React.Component {
@@ -93,7 +96,7 @@ class Layout extends React.Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="absolute" className={classNames(classes.appBar, this.state.open && classes.appBarShift)}>
+        <AppBar position="fixed" className={classNames(classes.appBar, this.state.open && classes.appBarShift)}>
           <Toolbar disableGutters={!this.state.open}>
             <IconButton
               color="inherit"
@@ -122,11 +125,13 @@ class Layout extends React.Component {
             </IconButton>
           </div>
           <Divider />
-          <List>
+          <List style={{position: 'relative', bottom: 10}}>
             <ListItem
               button
               onClick={() => {
-                history.push('/');
+                this.setState({open: false}, () => {
+                  history.push('/');
+                });
               }}
             >
               <ListItemIcon>
@@ -137,7 +142,9 @@ class Layout extends React.Component {
             <ListItem
               button
               onClick={() => {
-                history.push('/runner');
+                this.setState({open: false}, () => {
+                  history.push('/game');
+                });
               }}
             >
               <ListItemIcon>
@@ -150,8 +157,8 @@ class Layout extends React.Component {
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <Switch>
-            <Route exact path="/" component={Game} />
-            <Route exact path="/runner" component={Test} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/game" component={Game} />
           </Switch>
         </main>
       </div>
