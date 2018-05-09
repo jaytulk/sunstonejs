@@ -8,11 +8,8 @@ import Extra from './resources/questions';
 import Question from './Question';
 
 const styles = theme => ({
-  root: {
-    // display: 'flex',
-    // flexDirection: 'column',
-    // alignItems: 'center',
-    // justifyContent: 'flex',
+  finishWrapper: {
+    padding: 10,
   },
 });
 
@@ -41,7 +38,7 @@ class Game extends Component {
   render() {
     const {classes} = this.props;
     return (
-      <div className={classes.root}>
+      <div>
         {!this.state.finished && (
           <Slide
             direction={!!this.state.currentQuestion ? 'left' : 'right'}
@@ -53,9 +50,9 @@ class Game extends Component {
           </Slide>
         )}
         {this.state.finished && (
-          <Fragment>
+          <div className={classes.finishWrapper}>
             <Zoom in={true} timeout={1000}>
-              <Typography variant="display4" gutterBottom>
+              <Typography variant="display4" gutterBottom align="center">
                 You won!!!
               </Typography>
             </Zoom>
@@ -64,7 +61,7 @@ class Game extends Component {
                 {`Please call (225) 454-9424 with the final secret code: Ermahgerd! That verss fern!!🤓`}
               </Typography>
             </Zoom>
-          </Fragment>
+          </div>
         )}
       </div>
     );

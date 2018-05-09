@@ -25,6 +25,8 @@ const styles = theme => ({
     overflow: 'hidden',
     position: 'relative',
     display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -32,6 +34,7 @@ const styles = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    backgroundColor: '#4867ab',
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -64,17 +67,12 @@ const styles = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    width: theme.spacing.unit * 0,
   },
   toolbar: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-begin',
     padding: '0 8px',
     ...theme.mixins.toolbar,
-  },
-  content: {
-    marginLeft: 15,
   },
 });
 
@@ -107,7 +105,7 @@ class Layout extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="title" color="inherit" noWrap>
-              Super Relevant Trivia
+              Kathryn's Day Trivia
             </Typography>
           </Toolbar>
         </AppBar>
@@ -125,13 +123,12 @@ class Layout extends React.Component {
             </IconButton>
           </div>
           <Divider />
-          <List style={{position: 'relative', bottom: 10}}>
+          <List>
             <ListItem
               button
               onClick={() => {
-                this.setState({open: false}, () => {
-                  history.push('/');
-                });
+                history.push('/');
+                this.setState({open: false}, () => {});
               }}
             >
               <ListItemIcon>
@@ -142,9 +139,8 @@ class Layout extends React.Component {
             <ListItem
               button
               onClick={() => {
-                this.setState({open: false}, () => {
-                  history.push('/game');
-                });
+                history.push('/game');
+                this.setState({open: false}, () => {});
               }}
             >
               <ListItemIcon>
@@ -154,7 +150,7 @@ class Layout extends React.Component {
             </ListItem>
           </List>
         </Drawer>
-        <main className={classes.content}>
+        <main>
           <div className={classes.toolbar} />
           <Switch>
             <Route exact path="/" component={Home} />

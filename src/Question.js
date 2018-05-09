@@ -7,7 +7,6 @@ import Typography from 'material-ui/Typography';
 import TextField from 'material-ui/TextField';
 import Icon from 'material-ui/Icon';
 import Button from 'material-ui/Button';
-import Save from '@material-ui/icons/Save';
 import {CircularProgress} from 'material-ui/Progress';
 import Divider from 'material-ui/Divider';
 import green from 'material-ui/colors/green';
@@ -66,10 +65,6 @@ const styles = theme => ({
   },
 });
 
-const answerFieldProps = {
-  autoFocus: true,
-};
-
 class Question extends Component {
   state = {
     guess: null,
@@ -79,23 +74,24 @@ class Question extends Component {
   };
 
   handleOnChange = (e, test) => {
-    let guess = e.target.value ? e.target.value.toLowerCase() : '';
+    this.setState({guess: e.target.value || ''});
+  };
+
+  handleSubmit = async () => {
+    let guess = this.state.guess;
 
     if (this.props.adjustment) {
       guess = this.props.adjustment(guess);
     }
 
-    this.setState({guess});
-  };
-
-  handleSubmit = async () => {
     this.setState({loading: true}, () => {
       setTimeout(() => {
+        const answerAchieved = !!guess.match(new RegExp(this.props.answer, 'gi'));
         this.setState(
           {
             loading: false,
-            answerAchieved: this.state.guess === this.props.answer,
-            guessCount: this.state.guess === this.props.answer ? 0 : ++this.state.guessCount,
+            answerAchieved,
+            guessCount: answerAchieved ? 0 : ++this.state.guessCount,
           },
           () => {
             if (this.state.answerAchieved) {
@@ -137,7 +133,6 @@ class Question extends Component {
               className={classes.textField}
               helperText={this.state.guessCount >= hintThreshold ? `Hint: ${hint}` : ''}
               onChange={(e, test) => this.handleOnChange(e, test)}
-              inputProps={answerFieldProps}
             />
             <div className={classes.buttonRoot}>
               <div className={classes.wrapper}>

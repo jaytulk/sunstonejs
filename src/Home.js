@@ -15,7 +15,12 @@ class Home extends Component {
     return (
       <div className={classes.root}>
         <Typography variant="headline">
-          <p>Good morning, Kathryn! 😁</p>
+          <p>
+            Good morning, Kathryn!{' '}
+            <span role="img" aria-label=":)">
+              😁
+            </span>
+          </p>
           <p>I have been hard at work making the most of the extra time that I have now that side work is done.</p>
           <p>
             I have accounted for what I can, and hopefully everything will work correctly. If you do not know an answer,
@@ -26,17 +31,26 @@ class Home extends Component {
             breaks for realz(I hope it will not), then you can give me a call.
           </p>
           <p>
-            Mother's Day is all about celebrating your Mamahood, but instead you have to work a little for it! 😜
+            Mother's Day is all about celebrating your Mamahood, but instead you have to work a little for it!{' '}
+            <span role="img" aria-label=":)">
+              😜
+            </span>
             <br />
             The best that I can do is try to make it fun for you.
           </p>
           <p>
-            I love you 😘 and the kids <span style={{textDecoration: 'line-through'}}>probably</span> love you too(just
-            kidding about the probably, they do love you, those little stinkers).
+            I love you{' '}
+            <span role="img" aria-label=":)">
+              😘
+            </span>{' '}
+            and the kids <span style={{textDecoration: 'line-through'}}>probably</span> love you too(just kidding about
+            the probably, they do love you, those little stinkers).
           </p>
           <p>
             To the best mom/wife a kid/husband could have,<br />
-            Happy Mother's Day!!!😍
+            Happy Mother's Day!!!<span role="img" aria-label=":)">
+              😍
+            </span>
           </p>
           <p>
             Your challenge awaits!<br />
@@ -48,7 +62,16 @@ class Home extends Component {
           </p>
           <p>
             Love,<br />
-            Jay👴, Andrew🧑, Amelia👶, and Baxter 🐕
+            Jay<span role="img" aria-label=":)">
+              👴
+            </span>, Andrew<span role="img" aria-label=":)">
+              🧑
+            </span>, Amelia<span role="img" aria-label=":)">
+              👶
+            </span>, and Baxter{' '}
+            <span role="img" aria-label=":)">
+              🐕
+            </span>
           </p>
         </Typography>
       </div>

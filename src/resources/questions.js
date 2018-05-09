@@ -1,4 +1,4 @@
-const removeCommas = guess => guess.replace(/,/i, '');
+const removeCommas = guess => guess.replace(/,/gi, '');
 const trimAndRemoveFeet = (guess = '') => guess.trim().replace(/ feet/i, '');
 const removeLee = guess => guess.replace(/ lee /i, ' ');
 
@@ -45,8 +45,8 @@ const questions = [
   },
   {
     question: 'What is the secret code to begin the ultra intense challenge(just guess)?',
-    answer: 'best hubby evar',
-    hint: "It's on the coffee pot",
+    answer: 'the best hubby evar',
+    hint: 'Who is the coffee from?',
     hintThreshold: 2,
   },
   {
@@ -57,8 +57,18 @@ const questions = [
     hintThreshold: 2,
   },
   {
+    directions: "Start Minecraft. Enter 'Ready' when you have completed this task",
+    question: 'Ready to continue?',
+    answer: 'ready',
+  },
+  {
     directions:
-      'Start Minecraft. Find your world (you will know which one is yours). Open the game in Survival mode, with the Peaceful difficulty. Find the first code and return with your revelation...',
+      "Find your world (you will know which one is yours). Open the game in Survival mode, with the Peaceful difficulty. Enter 'Ready' when you have completed this task",
+    question: 'Ready to continue?',
+    answer: 'ready',
+  },
+  {
+    directions: 'You are trapped! You must solve the maze and find the secret code! Return with your revelation...',
     question: 'What is the secret code?',
     answer: 'love',
     hint: 'You need to beat the maze',
@@ -67,7 +77,7 @@ const questions = [
   {
     directions: 'Continue on! Return with the code from the sky(you might have to explore)...',
     question: 'What is the secret code?',
-    answer: '1281',
+    answer: 'family',
     hint: 'Follow the stairs down by where you respawned',
     hintThreshold: 1,
   },
@@ -79,12 +89,12 @@ const questions = [
   {
     directions: 'Escape the room! Return with your last code...',
     question: 'What is the final code?',
-    answer: `kathryn's mothers day`,
+    answer: `happy mother's day`,
   },
   {
-    question: 'What that fern? (you can say no)',
+    question: 'What that fern? (you should say no)',
     answer: 'yes',
-    hint: `OMG, that's mean! 😭`,
+    hint: `OMG, that's so mean! 😭`,
     hintThreshold: 1,
   },
 ];
