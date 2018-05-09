@@ -15,16 +15,21 @@ class Home extends Component {
     return (
       <div className={classes.root}>
         <Typography variant="headline">
+          <p>Good morning, Kathryn! 😁</p>
           <p>I have been hard at work making the most of the extra time that I have now that side work is done.</p>
           <p>
             I have accounted for what I can, and hopefully everything will work correctly. If you do not know an answer,
             feel free to guess a few times or use Google(there will be hints).
           </p>
           <p>
-            The important thing is that you hold off calling me, so that you can get the full experience. If it is still
-            not working, then you can give me a call.
+            The important thing is that you hold off calling me, so that you can get the full experience. If something
+            breaks for realz(I hope it will not), then you can give me a call.
           </p>
-          <p>Mother's Day is all about celebrating your Mamahood, but instead you have to work a little for it! 😜</p>
+          <p>
+            Mother's Day is all about celebrating your Mamahood, but instead you have to work a little for it! 😜
+            <br />
+            The best that I can do is try to make it fun for you.
+          </p>
           <p>
             I love you 😘 and the kids <span style={{textDecoration: 'line-through'}}>probably</span> love you too(just
             kidding about the probably, they do love you, those little stinkers).
@@ -34,12 +39,16 @@ class Home extends Component {
             Happy Mother's Day!!!😍
           </p>
           <p>
-            Love,<br />
-            Jay👴, Andrew🧑, and Amelia👶
-          </p>
-          <p>
             Your challenge awaits!<br />
             Please open the challenge page to begin!
+          </p>
+          <p>
+            The secret code is: <br />
+            I love my stinky husband
+          </p>
+          <p>
+            Love,<br />
+            Jay👴, Andrew🧑, Amelia👶, and Baxter 🐕
           </p>
         </Typography>
       </div>
